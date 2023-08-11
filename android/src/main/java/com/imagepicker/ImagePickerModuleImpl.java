@@ -133,7 +133,9 @@ public class ImagePickerModuleImpl implements ActivityEventListener {
                 libraryIntent.addCategory(Intent.CATEGORY_OPENABLE);
             }
         } else {
-            libraryIntent = new Intent(MediaStore.ACTION_PICK_IMAGES);
+            //  FIX ACTION_PICK_IMAGES doesn't seem to provide browse button and select from google drive
+            // libraryIntent = new Intent(MediaStore.ACTION_PICK_IMAGES);
+            libraryIntent = new Intent(Intent.ACTION_GET_CONTENT);
         }
 
         if (!isSingleSelect) {
